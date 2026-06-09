@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Computer Education — CSED Community Builder Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg:        #F7F6F2;
+    --bg-2:      #EFEDE7;
+    --bg-3:      #E8E5DE;
+    --surface:   #FFFFFF;
+    --ink:       #1A1916;
+    --ink-2:     #3D3B36;
+    --ink-3:     #6B6860;
+    --ink-4:     #9C9A95;
+    --rule:      #D8D5CE;
+    --accent:    #2C5F8A;
+    --accent-2:  #1D4268;
+    --accent-bg: rgba(44,95,138,0.07);
+    --accent-bd: rgba(44,95,138,0.2);
+    --warm:      #7A5230;
+    --warm-bg:   rgba(122,82,48,0.07);
+    --sage:      #3B6156;
+    --sage-bg:   rgba(59,97,86,0.07);
+    --rust:      #8A3B2C;
+    --rust-bg:   rgba(138,59,44,0.07);
+    --radius:    10px;
+    --radius-lg: 16px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,h2,h3,h4 { font-family: 'DM Serif Display', serif; font-weight: 400; line-height: 1.15; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(247,246,242,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 clamp(1.5rem,5vw,4rem);
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-mark {
+    width: 30px; height: 30px;
+    background: var(--accent);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--ink-3);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.15s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-cta {
+    background: var(--ink);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+
+  .nav-cta:hover { background: var(--accent); }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--ink-3);
+    border-radius: 2px;
+    transition: all 0.2s;
+  }
+
+  /* ─── MOBILE MENU ─── */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 62px 0 0;
+    background: var(--bg);
+    z-index: 99;
+    padding: 2rem clamp(1.5rem,5vw,4rem);
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 1.15rem;
+    font-weight: 500;
+    border-bottom: 1px solid var(--rule);
+    padding: 1.1rem 0;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px clamp(1.5rem,5vw,4rem) 80px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .hero-inner {
+    max-width: 800px;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--rule);
+    border-radius: 100px;
+    padding: 5px 16px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-3);
+    margin-bottom: 2rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: var(--surface);
+  }
+
+  .hero-eyebrow-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: blink 2.4s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%,100% { opacity:1; } 50% { opacity:0.3; }
+  }
+
+  .hero h1 {
+    font-size: clamp(2.8rem,7vw,5.2rem);
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+    line-height: 1.08;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem,2vw,1.15rem);
+    color: var(--ink-3);
+    max-width: 580px;
+    margin: 0 auto 2.5rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--ink);
+    color: #fff;
+    padding: 13px 26px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--ink);
+    cursor: pointer;
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .btn-primary:hover { background: var(--accent); border-color: var(--accent); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    padding: 13px 26px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--rule);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .btn-secondary:hover { border-color: var(--ink-3); background: var(--bg-2); }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: clamp(1.5rem,4vw,3.5rem);
+    margin-top: 4rem;
+    flex-wrap: wrap;
+    padding-top: 3rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .hero-stat .num {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem,4vw,2.6rem);
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .hero-stat .lbl {
+    font-size: 12px;
+    color: var(--ink-4);
+    margin-top: 4px;
+    letter-spacing: 0.01em;
+  }
+
+  .stat-divider {
+    width: 1px;
+    background: var(--rule);
+    align-self: stretch;
+  }
+
+  /* ─── METRICS BAND ─── */
+  .metrics-strip {
+    background: var(--ink);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .metrics-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem clamp(1.5rem,5vw,4rem);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px,1fr));
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .metric-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem,4vw,2.8rem);
+    color: #fff;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .metric-lbl {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ─── SECTION ─── */
+  section {
+    position: relative;
+    padding: clamp(4rem,8vw,6.5rem) clamp(1.5rem,5vw,4rem);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-4);
+    margin-bottom: 1rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 1px;
+    background: var(--ink-4);
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem,4vw,2.6rem);
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .section-desc {
+    font-size: 1rem;
+    color: var(--ink-3);
+    max-width: 520px;
+    line-height: 1.75;
+  }
+
+  /* ─── PHASES ─── */
+  .phases-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .phase-tabs {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .phase-tab {
+    padding: 7px 16px;
+    border-radius: 100px;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--ink-3);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .phase-tab:hover { border-color: var(--ink-3); color: var(--ink); }
+
+  .phase-tab.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+  }
+
+  /* Timeline */
+  .timeline { position: relative; }
+
+  .timeline-spine {
+    position: absolute;
+    left: 26px;
+    top: 28px;
+    bottom: 28px;
+    width: 1px;
+    background: var(--rule);
+  }
+
+  .timeline-spine-fill {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    background: var(--accent);
+    border-radius: 1px;
+    transition: height 0.5s ease;
+  }
+
+  .phase-block {
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    gap: 0 1.75rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.35;
+    transition: opacity 0.3s;
+  }
+
+  .phase-block.active { opacity: 1; }
+
+  .phase-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2px;
+  }
+
+  .phase-dot {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--bg-2);
+    border: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    color: var(--ink-4);
+    flex-shrink: 0;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 2;
+  }
+
+  .phase-block.active .phase-dot {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  .phase-content {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: border-color 0.2s;
+  }
+
+  .phase-block.active .phase-content {
+    border-color: var(--accent-bd);
+  }
+
+  .phase-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 0.85rem;
+    flex-wrap: wrap;
+  }
+
+  .phase-week-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: var(--accent-bg);
+    color: var(--accent);
+    border: 1px solid var(--accent-bd);
+    letter-spacing: 0.02em;
+  }
+
+  .phase-theme {
+    font-size: 12px;
+    color: var(--ink-4);
+    font-style: italic;
+  }
+
+  .phase-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.3rem,3vw,1.65rem);
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+
+  .phase-tagline {
+    font-size: 0.9rem;
+    color: var(--ink-3);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px,1fr));
+    gap: 1rem;
+  }
+
+  .pillar {
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 1.15rem;
+    transition: border-color 0.15s;
+  }
+
+  .pillar:hover { border-color: var(--ink-4); }
+
+  .pillar-header {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 0.85rem;
+  }
+
+  .pillar-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .pillar-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .pillar-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .pillar-list li {
+    font-size: 12.5px;
+    color: var(--ink-3);
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .pillar-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--ink-4);
+  }
+
+  /* ─── TRACKS ─── */
+  .tracks-bg { background: var(--bg-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+
+  .tracks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+    gap: 1.1rem;
+    margin-top: 3rem;
+  }
+
+  .track-card {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    padding: 1.6rem;
+    transition: transform 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .track-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  .track-card:hover { transform: translateY(-2px); border-color: var(--ink-4); }
+
+  .tc-blue::before  { background: var(--accent); }
+  .tc-warm::before  { background: var(--warm); }
+  .tc-sage::before  { background: var(--sage); }
+  .tc-rust::before  { background: var(--rust); }
+
+  .track-icon-wrap {
+    width: 44px; height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 1.1rem;
+  }
+
+  .tc-blue .track-icon-wrap  { background: var(--accent-bg); }
+  .tc-warm .track-icon-wrap  { background: var(--warm-bg); }
+  .tc-sage .track-icon-wrap  { background: var(--sage-bg); }
+  .tc-rust .track-icon-wrap  { background: var(--rust-bg); }
+
+  .track-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 0.45rem;
+  }
+
+  .track-desc {
+    font-size: 13.5px;
+    color: var(--ink-3);
+    line-height: 1.65;
+    margin-bottom: 1.1rem;
+  }
+
+  .track-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .track-tag {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 9px;
+    border-radius: 100px;
+    border: 1px solid var(--rule);
+    color: var(--ink-4);
+    background: var(--bg);
+  }
+
+  .track-pick-note {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding: 1.1rem 2rem;
+    border: 1px dashed var(--rule);
+    border-radius: var(--radius);
+    color: var(--ink-3);
+    font-size: 14px;
+  }
+
+  .track-pick-note strong { color: var(--accent); }
+
+  /* ─── SOFT SKILLS ─── */
+  .soft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .soft-card {
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    background: var(--surface);
+    transition: border-color 0.15s;
+  }
+
+  .soft-card:hover { border-color: var(--ink-4); }
+
+  .soft-icon {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .soft-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 5px;
+  }
+
+  .soft-desc {
+    font-size: 12.5px;
+    color: var(--ink-3);
+    line-height: 1.55;
+  }
+
+  /* ─── RITUALS ─── */
+  .rituals-bg { background: var(--bg-2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+
+  .rituals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px,1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .ritual-card {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    padding: 1.4rem;
+    display: flex;
+    gap: 1rem;
+    transition: border-color 0.15s;
+  }
+
+  .ritual-card:hover { border-color: var(--ink-4); }
+
+  .ritual-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .ritual-freq {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    color: var(--ink-4);
+  }
+
+  .ritual-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 5px;
+  }
+
+  .ritual-desc {
+    font-size: 13px;
+    color: var(--ink-3);
+    line-height: 1.6;
+  }
+
+  /* ─── ROLES ─── */
+  .roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px,1fr));
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .role-card {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    padding: 1.4rem;
+    text-align: center;
+    transition: border-color 0.15s;
+  }
+
+  .role-card:hover { border-color: var(--ink-4); }
+
+  .role-avatar {
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin: 0 auto 0.85rem;
+    border: 1px solid var(--rule);
+    background: var(--bg-2);
+  }
+
+  .role-name {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 5px;
+  }
+
+  .role-desc {
+    font-size: 12.5px;
+    color: var(--ink-3);
+    line-height: 1.5;
+  }
+
+  .rotate-note {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 12.5px;
+    color: var(--ink-4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .rotate-note::before, .rotate-note::after {
+    content: '';
+    height: 1px;
+    width: 50px;
+    background: var(--rule);
+  }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    background: var(--ink);
+    text-align: center;
+    padding: clamp(5rem,10vw,8rem) clamp(1.5rem,5vw,4rem);
+  }
+
+  .cta-inner h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem,4vw,3rem);
+    color: #fff;
+    margin-bottom: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.15;
+  }
+
+  .cta-inner p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+  }
+
+  .btn-primary-inv {
+    background: #fff;
+    color: var(--ink);
+    padding: 13px 26px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid #fff;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .btn-primary-inv:hover { background: var(--bg-2); border-color: var(--bg-2); }
+
+  .btn-secondary-inv {
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    padding: 13px 26px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.18);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .btn-secondary-inv:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+
+  .cta-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 1.75rem clamp(1.5rem,5vw,4rem);
+    text-align: center;
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  footer strong { color: rgba(255,255,255,0.55); font-weight: 500; }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* ─── REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .nav-links, .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+
+    .phase-block {
+      grid-template-columns: 42px 1fr;
+      gap: 0 1rem;
+    }
+
+    .phase-dot { width: 42px; height: 42px; font-size: 13px; }
+    .timeline-spine { left: 21px; }
+    .stat-divider { display: none; }
+  }
+
+  @media (max-width: 520px) {
+    .tracks-grid  { grid-template-columns: 1fr; }
+    .rituals-grid { grid-template-columns: 1fr; }
+    .roles-grid   { grid-template-columns: 1fr 1fr; }
+    .soft-grid    { grid-template-columns: 1fr 1fr; }
+    .pillars-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">CE</div>
+    <span class="nav-logo-text">Computer Education</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#phases">Program</a></li>
+    <li><a href="#tracks">Tracks</a></li>
+    <li><a href="#rituals">Rituals</a></li>
+    <li><a href="#roles">Leadership</a></li>
+  </ul>
+  <a href="#cta" class="nav-cta">Join the cohort</a>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#phases" onclick="toggleMenu()">Program Phases</a>
+  <a href="#tracks" onclick="toggleMenu()">Skill Tracks</a>
+  <a href="#rituals" onclick="toggleMenu()">Rituals</a>
+  <a href="#roles" onclick="toggleMenu()">Leadership</a>
+  <a href="#cta" onclick="toggleMenu()">Join the cohort</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="hero-eyebrow-dot"></span>
+      CSED 300-Level Program
+    </div>
+    <h1>Build together.<br/><em>Grow together.</em><br/>Lead together.</h1>
+    <p class="hero-sub">A peer-driven, structured program that transforms a CS cohort into a collaborative, high-performing tech community — students who ship real things, speak with confidence, and carry each other forward.</p>
+    <div class="hero-actions">
+      <a href="#phases" class="btn-primary">Explore the program →</a>
+      <a href="#cta" class="btn-secondary">Join the cohort</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">26</div>
+        <div class="lbl">Weeks structured</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-stat">
+        <div class="num">5</div>
+        <div class="lbl">Phases of growth</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-stat">
+        <div class="num">4</div>
+        <div class="lbl">Skill tracks</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-stat">
+        <div class="num">100%</div>
+        <div class="lbl">Members lead once</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- METRICS -->
+<div class="metrics-strip reveal">
+  <div class="metrics-inner">
+    <div><div class="metric-num">4+</div><div class="metric-lbl">Real projects shipped per year</div></div>
+    <div><div class="metric-num">26+</div><div class="metric-lbl">TechTalk sessions held</div></div>
+    <div><div class="metric-num">300+</div><div class="metric-lbl">Classmates reached</div></div>
+    <div><div class="metric-num">∞</div><div class="metric-lbl">Community legacy left behind</div></div>
+  </div>
+</div>
+
+<!-- PHASES -->
+<section id="phases">
+  <div class="reveal">
+    <div class="phases-header">
+      <div>
+        <div class="section-label">The roadmap</div>
+        <h2 class="section-title">Five phases.<br/>One cohort. Real impact.</h2>
+        <p class="section-desc">Each phase builds on the last — trust before tasks, tasks before teaching, teaching before legacy.</p>
+      </div>
+      <div class="phase-tabs">
+        <button class="phase-tab active" onclick="filterPhase('all')">All phases</button>
+        <button class="phase-tab" onclick="filterPhase(0)">Phase 1</button>
+        <button class="phase-tab" onclick="filterPhase(1)">Phase 2</button>
+        <button class="phase-tab" onclick="filterPhase(2)">Phase 3</button>
+        <button class="phase-tab" onclick="filterPhase(3)">Phase 4</button>
+        <button class="phase-tab" onclick="filterPhase(4)">Phase 5</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline reveal">
+    <div class="timeline-spine"><div class="timeline-spine-fill" id="spineFill"></div></div>
+
+    <!-- PHASE 1 -->
+    <div class="phase-block active" data-phase="0">
+      <div class="phase-node"><div class="phase-dot">I</div></div>
+      <div class="phase-content">
+        <div class="phase-meta">
+          <span class="phase-week-badge">Weeks 1–4</span>
+          <span class="phase-theme">Trust before tasks</span>
+        </div>
+        <h3 class="phase-name">Foundation</h3>
+        <p class="phase-tagline">Build shared identity before building anything else.</p>
+        <div class="pillars-grid">
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--accent-bg)">🏛️</div>
+              <div class="pillar-title">Community Setup</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Community charter &amp; shared values session</li>
+              <li>Group name, identity, and public channels</li>
+              <li>Roles assigned — volunteer first round</li>
+              <li>Onboarding buddy system paired</li>
+            </ul>
+          </div>
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--warm-bg)">🔍</div>
+              <div class="pillar-title">Skills Audit</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Each member rates 5 core tech skills</li>
+              <li>Soft skills self-assessment form</li>
+              <li>Interest mapping to 2 skill tracks</li>
+              <li>Mentor matching based on audit</li>
+            </ul>
+          </div>
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--sage-bg)">🎯</div>
+              <div class="pillar-title">Goal Setting</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Personal 3-month goal cards written</li>
+              <li>Team OKRs set collectively</li>
+              <li>Accountability partners assigned</li>
+              <li>First project themes brainstormed</li>
+            </ul>
+          </div>
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--rust-bg)">🎤</div>
+              <div class="pillar-title">First TechTalk</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Lead member gives first TechTalk</li>
+              <li>Topic: growth mindset in tech</li>
+              <li>Q&amp;A + group reflection</li>
+              <li>Ritual introduced and explained</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 2 -->
+    <div class="phase-block active" data-phase="1">
+      <div class="phase-node"><div class="phase-dot">II</div></div>
+      <div class="phase-content">
+        <div class="phase-meta">
+          <span class="phase-week-badge">Weeks 5–8</span>
+          <span class="phase-theme">Clarity before execution</span>
+        </div>
+        <h3 class="phase-name">Project Discovery</h3>
+        <p class="phase-tagline">Find the right problem before writing a single line of code.</p>
+        <div class="pillars-grid">
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--accent-bg)">🧭</div>
+              <div class="pillar-title">Problem Scouting</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Needs survey sent to the full class</li>
+              <li>Problem statements gathered and ranked</li>
+              <li>User research sprint (2 days)</li>
+              <li>Top 3 problems shortlisted together</li>
+            </ul>
+          </div>
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--warm-bg)">🗺️</div>
+              <div class="pillar-title">Solution Mapping</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Cross-track brainstorm — all 4 tracks together</li>
+              <li>Tech feasibility check per solution</li>
+              <li>Solution voted on by the full group</li>
+              <li>Project scope document drafted</li>
+            </ul>
+          </div>
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--sage-bg)">👥</div>
+              <div class="pillar-title">Team Formation</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Cross-track teams of 3–4 members formed</li>
+              <li>Each team: engineering + data + design + devops</li>
+              <li>Roles and responsibilities defined</li>
+              <li>Team contract signed by all members</li>
+            </ul>
+          </div>
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--rust-bg)">📋</div>
+              <div class="pillar-title">Sprint Zero</div>
+            </div>
+            <ul class="pillar-list">
+              <li>GitHub repo and project board set up</li>
+              <li>Tech stack decided as a team</li>
+              <li>First sprint backlog populated</li>
+              <li>Definition of Done agreed on</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 3 -->
+    <div class="phase-block active" data-phase="2">
+      <div class="phase-node"><div class="phase-dot">III</div></div>
+      <div class="phase-content">
+        <div class="phase-meta">
+          <span class="phase-week-badge">Weeks 9–16</span>
+          <span class="phase-theme">All tracks. One product.</span>
+        </div>
+        <h3 class="phase-name">Build</h3>
+        <p class="phase-tagline">The engine room — all four tracks converge to ship something real.</p>
+        <div class="pillars-grid">
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--accent-bg)">⚡</div>
+              <div class="pillar-title">Project Sprints</div>
+            </div>
+            <ul class="pillar-list">
+              <li>2-week sprint cycles with check-ins</li>
+              <li>Mid-sprint review with track leads</li>
+              <li>Weekly TechTalk rotates among members</li>
+              <li>Monthly peer review sessions (all tracks)</li>
+            </ul>
+          </div>
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--warm-bg)">🎙️</div>
+              <div class="pillar-title">Soft Skills Lab</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Workshop 1: public speaking fundamentals</li>
+              <li>Workshop 2: leadership under pressure</li>
+              <li>Workshop 3: ownership mindset</li>
+              <li>Workshop 4: team conflict resolution</li>
+            </ul>
+          </div>
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--sage-bg)">🔎</div>
+              <div class="pillar-title">Peer Reviews</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Monthly cross-track code review sessions</li>
+              <li>Structured feedback framework used</li>
+              <li>GitHub PR culture introduced</li>
+              <li>Pair programming blocks scheduled</li>
+            </ul>
+          </div>
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--rust-bg)">🌐</div>
+              <div class="pillar-title">External Exposure</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Industry guest speaker (virtual)</li>
+              <li>Virtual job shadow opportunity</li>
+              <li>Members build LinkedIn profiles</li>
+              <li>Build in public — post across social platforms</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 4 -->
+    <div class="phase-block active" data-phase="3">
+      <div class="phase-node"><div class="phase-dot">IV</div></div>
+      <div class="phase-content">
+        <div class="phase-meta">
+          <span class="phase-week-badge">Weeks 17–22</span>
+          <span class="phase-theme">Paying it forward</span>
+        </div>
+        <h3 class="phase-name">Scale & Teach</h3>
+        <p class="phase-tagline">The community grows beyond the cohort — members become the teachers.</p>
+        <div class="pillars-grid">
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--accent-bg)">📚</div>
+              <div class="pillar-title">Teach the Class</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Weekly workshops open to the full class</li>
+              <li>Each 300-level member leads one session</li>
+              <li>Topics from a class-wide skills gap survey</li>
+              <li>Recorded and added to the knowledge base</li>
+            </ul>
+          </div>
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--warm-bg)">🚀</div>
+              <div class="pillar-title">Advanced Projects</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Projects scope up — add real users</li>
+              <li>Deploy to production environments</li>
+              <li>Open-source at least one project</li>
+              <li>Partner with a student org or NGO</li>
+            </ul>
+          </div>
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--sage-bg)">🔄</div>
+              <div class="pillar-title">Leadership Rotation</div>
+            </div>
+            <ul class="pillar-list">
+              <li>New leads voted in by peers</li>
+              <li>Outgoing leads mentor incoming team</li>
+              <li>Retrospective on phases 1–3 done</li>
+              <li>Personal growth portfolios started</li>
+            </ul>
+          </div>
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--rust-bg)">💚</div>
+              <div class="pillar-title">Community Health</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Burnout check-in survey sent</li>
+              <li>Celebration of wins — big and small</li>
+              <li>Community culture document updated</li>
+              <li>New rituals proposed by members</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHASE 5 -->
+    <div class="phase-block active" data-phase="4">
+      <div class="phase-node"><div class="phase-dot">V</div></div>
+      <div class="phase-content">
+        <div class="phase-meta">
+          <span class="phase-week-badge">Weeks 23–26</span>
+          <span class="phase-theme">The grand finale</span>
+        </div>
+        <h3 class="phase-name">Demo & Legacy</h3>
+        <p class="phase-tagline">Showcase what was built. Hand the torch to who comes next.</p>
+        <div class="pillars-grid">
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--accent-bg)">🏆</div>
+              <div class="pillar-title">Final Demo Day</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Public showcase — all projects presented</li>
+              <li>Invite industry professionals &amp; faculty</li>
+              <li>Each member presents their track work</li>
+              <li>Press-style Q&amp;A panel after demos</li>
+            </ul>
+          </div>
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--warm-bg)">💼</div>
+              <div class="pillar-title">Portfolio Finish</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Personal tech portfolios completed</li>
+              <li>GitHub profiles polished and pinned</li>
+              <li>Case studies written for each project</li>
+              <li>LinkedIn recommendations exchanged</li>
+            </ul>
+          </div>
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--sage-bg)">📖</div>
+              <div class="pillar-title">Legacy Handoff</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Full program playbook documented</li>
+              <li>Resource library handed to the next class</li>
+              <li>Mentorship links to 200-level juniors</li>
+              <li>Community charter updated and archived</li>
+            </ul>
+          </div>
+          <div class="pillar">
+            <div class="pillar-header">
+              <div class="pillar-icon" style="background:var(--rust-bg)">🎊</div>
+              <div class="pillar-title">Celebration</div>
+            </div>
+            <ul class="pillar-list">
+              <li>Recognition ceremony for all members</li>
+              <li>Awards: Most Improved, Best Teacher…</li>
+              <li>Group reflection journal published</li>
+              <li>Community officially passes the torch</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TRACKS -->
+<div class="tracks-bg">
+  <section id="tracks">
+    <div class="reveal">
+      <div class="section-label">Skill tracks</div>
+      <h2 class="section-title">Pick your lane.<br/>Collaborate across all four.</h2>
+      <p class="section-desc">Every member picks one lead track and one support track. Projects are always cross-track — the real learning happens at the intersections.</p>
+    </div>
+    <div class="tracks-grid reveal">
+      <div class="track-card tc-blue">
+        <div class="track-icon-wrap">⚙️</div>
+        <div class="track-name">Engineering</div>
+        <p class="track-desc">Full-stack, backend, mobile, systems. Code reviews, pair programming, and open-source contributions form the backbone of this track.</p>
+        <div class="track-tags">
+          <span class="track-tag">React / Next.js</span>
+          <span class="track-tag">Node / Python</span>
+          <span class="track-tag">APIs</span>
+          <span class="track-tag">Open Source</span>
+        </div>
+      </div>
+      <div class="track-card tc-warm">
+        <div class="track-icon-wrap">📊</div>
+        <div class="track-name">Data & AI</div>
+        <p class="track-desc">ML pipelines, analytics dashboards, and data storytelling using real datasets from NGOs and local organisations.</p>
+        <div class="track-tags">
+          <span class="track-tag">Python / SQL</span>
+          <span class="track-tag">ML Models</span>
+          <span class="track-tag">Dashboards</span>
+          <span class="track-tag">NLP</span>
+        </div>
+      </div>
+      <div class="track-card tc-sage">
+        <div class="track-icon-wrap">🎨</div>
+        <div class="track-name">Product & Design</div>
+        <p class="track-desc">User research, wireframing, and product thinking. This track ensures the group builds things people actually want to use.</p>
+        <div class="track-tags">
+          <span class="track-tag">Figma</span>
+          <span class="track-tag">UX Research</span>
+          <span class="track-tag">Prototyping</span>
+          <span class="track-tag">Product Strategy</span>
+        </div>
+      </div>
+      <div class="track-card tc-rust">
+        <div class="track-icon-wrap">🛡️</div>
+        <div class="track-name">DevOps & Security</div>
+        <p class="track-desc">CI/CD pipelines, cloud deployments, and security fundamentals. This track keeps the systems running reliably and safely.</p>
+        <div class="track-tags">
+          <span class="track-tag">Docker / K8s</span>
+          <span class="track-tag">AWS / GCP</span>
+          <span class="track-tag">CI/CD</span>
+          <span class="track-tag">Security</span>
+        </div>
+      </div>
+    </div>
+    <p class="track-pick-note reveal">
+      Every project team includes <strong>at least one member from each track</strong>. Real products require all four disciplines working in concert.
+    </p>
+  </section>
+</div>
+
+<div class="divider"></div>
+
+<!-- SOFT SKILLS -->
+<section>
+  <div class="reveal">
+    <div class="section-label">Soft skills curriculum</div>
+    <h2 class="section-title">Technical skills open doors.<br/>These determine how far you go.</h2>
+    <p class="section-desc">Monthly workshops woven into the program — not optional extras bolted on after the fact.</p>
+  </div>
+  <div class="soft-grid reveal">
+    <div class="soft-card">
+      <div class="soft-icon">🎤</div>
+      <div class="soft-name">Public Speaking</div>
+      <p class="soft-desc">Weekly TechTalks build confidence through low-stakes, high-frequency repetition. Every member speaks at least once per phase.</p>
+    </div>
+    <div class="soft-card">
+      <div class="soft-icon">👑</div>
+      <div class="soft-name">Leadership</div>
+      <p class="soft-desc">Roles rotate every semester. Members lead, follow, and mentor. Leadership is a practice, not a permanent title.</p>
+    </div>
+    <div class="soft-card">
+      <div class="soft-icon">🔥</div>
+      <div class="soft-name">Ownership Mindset</div>
+      <p class="soft-desc">When something is broken, the community fixes it — regardless of whose responsibility it formally is. Workshop 3 explores what this looks like in practice.</p>
+    </div>
+    <div class="soft-card">
+      <div class="soft-icon">🤝</div>
+      <div class="soft-name">Conflict Resolution</div>
+      <p class="soft-desc">Disagreements are a natural part of collaboration. The goal is learning to navigate them without damaging the relationships that matter.</p>
+    </div>
+    <div class="soft-card">
+      <div class="soft-icon">✍️</div>
+      <div class="soft-name">Technical Writing</div>
+      <p class="soft-desc">READMEs, case studies, LinkedIn posts. Clear written communication is a discipline most engineers undervalue until it's too late.</p>
+    </div>
+    <div class="soft-card">
+      <div class="soft-icon">🧠</div>
+      <div class="soft-name">Growth Mindset</div>
+      <p class="soft-desc">The opening TechTalk sets the tone for the entire program: failure is data, feedback is a gift, and learning has no endpoint.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- RITUALS -->
+<div class="rituals-bg">
+  <section id="rituals">
+    <div class="reveal">
+      <div class="section-label">Community rituals</div>
+      <h2 class="section-title">Structure creates freedom.</h2>
+      <p class="section-desc">Rituals are the heartbeat of the program — consistent, intentional, and owned by the community itself.</p>
+    </div>
+    <div class="rituals-grid reveal">
+      <div class="ritual-card">
+        <div class="ritual-icon">🗣️</div>
+        <div>
+          <div class="ritual-freq">Weekly</div>
+          <div class="ritual-name">TechTalk (30 min)</div>
+          <p class="ritual-desc">One member teaches something they have learned. Rotates every week. No slides required — just knowledge shared openly.</p>
+        </div>
+      </div>
+      <div class="ritual-card">
+        <div class="ritual-icon">🔎</div>
+        <div>
+          <div class="ritual-freq">Monthly</div>
+          <div class="ritual-name">Peer Review Session</div>
+          <p class="ritual-desc">Cross-track code and design reviews. Members learn to give and receive professional, constructive feedback.</p>
+        </div>
+      </div>
+      <div class="ritual-card">
+        <div class="ritual-icon">🚀</div>
+        <div>
+          <div class="ritual-freq">Monthly</div>
+          <div class="ritual-name">Demo Day</div>
+          <p class="ritual-desc">Each team presents progress publicly — to peers, invited professionals, and the wider class.</p>
+        </div>
+      </div>
+      <div class="ritual-card">
+        <div class="ritual-icon">🎙️</div>
+        <div>
+          <div class="ritual-freq">Monthly</div>
+          <div class="ritual-name">Soft Skills Lab</div>
+          <p class="ritual-desc">Rotating workshops covering public speaking, leadership, ownership mindset, conflict resolution, and more.</p>
+        </div>
+      </div>
+      <div class="ritual-card">
+        <div class="ritual-icon">🔁</div>
+        <div>
+          <div class="ritual-freq">Per phase</div>
+          <div class="ritual-name">Retrospective</div>
+          <p class="ritual-desc">A structured team reflection — what worked, what did not, and what changes for the next phase. Written and shared openly.</p>
+        </div>
+      </div>
+      <div class="ritual-card">
+        <div class="ritual-icon">📣</div>
+        <div>
+          <div class="ritual-freq">Ongoing</div>
+          <div class="ritual-name">Build in Public</div>
+          <p class="ritual-desc">Progress, learnings, and wins posted on LinkedIn and other platforms. Build a professional presence while building the product.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="divider"></div>
+
+<!-- ROLES -->
+<section id="roles">
+  <div class="reveal">
+    <div class="section-label">Leadership structure</div>
+    <h2 class="section-title">Everyone leads.<br/>Everyone follows.</h2>
+    <p class="section-desc">Roles rotate each semester — merit-based, peer-voted, and mentored. No one holds a title permanently, and no one leaves without having held one.</p>
+  </div>
+  <div class="roles-grid reveal">
+    <div class="role-card">
+      <div class="role-avatar">👑</div>
+      <div class="role-name">Community Lead</div>
+      <p class="role-desc">Sets overall direction, manages external relations, and makes final calls. Rotates each semester.</p>
+    </div>
+    <div class="role-card">
+      <div class="role-avatar">🌿</div>
+      <div class="role-name">Track Leads ×4</div>
+      <p class="role-desc">Own their skill track, set quality standards, and pair senior members with those who need support.</p>
+    </div>
+    <div class="role-card">
+      <div class="role-avatar">📅</div>
+      <div class="role-name">Events Coordinator</div>
+      <p class="role-desc">Plans Demo Days, TechTalks, and external speaker sessions from start to finish.</p>
+    </div>
+    <div class="role-card">
+      <div class="role-avatar">💬</div>
+      <div class="role-name">Community Manager</div>
+      <p class="role-desc">Onboards new members, tracks engagement, and keeps the culture healthy and welcoming.</p>
+    </div>
+    <div class="role-card">
+      <div class="role-avatar">📚</div>
+      <div class="role-name">Knowledge Lead</div>
+      <p class="role-desc">Maintains the shared wiki, documents learnings, and curates the community resource library.</p>
+    </div>
+  </div>
+  <p class="rotate-note reveal">All roles rotate each semester, decided by peer vote</p>
+</section>
+
+<!-- CTA -->
+<div class="cta-section" id="cta">
+  <div class="cta-inner reveal">
+    <div class="section-label" style="justify-content:center;color:rgba(255,255,255,0.4)">Ready to begin?</div>
+    <h2>A cohort that builds together<br/>stays together.</h2>
+    <p>26 weeks. Real projects. A community that outlasts the semester and a portfolio that proves it.</p>
+    <div class="cta-actions">
+      <a href="#phases" class="btn-primary-inv">Explore the program →</a>
+      <a href="#" class="btn-secondary-inv">Download the playbook</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Computer Education</strong> — CSED 300-Level Community Program · A peer-driven framework for CS cohorts · Built to last
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  function filterPhase(idx) {
+    document.querySelectorAll('.phase-tab').forEach((t,i) => {
+      if(idx === 'all') t.classList.toggle('active', i===0);
+      else t.classList.toggle('active', i === idx+1);
+    });
+    document.querySelectorAll('.phase-block').forEach((b,i) => {
+      if(idx === 'all') { b.style.display='grid'; b.classList.add('active'); }
+      else { const s=i===idx; b.style.display=s?'grid':'none'; b.classList.toggle('active',s); }
+    });
+    updateSpine();
+  }
+
+  function updateSpine() {
+    const blocks = document.querySelectorAll('.phase-block');
+    let last = -1;
+    let total = 0;
+    blocks.forEach((b,i) => { if(b.style.display !== 'none'){ last=i; total++; }});
+    const fill = document.getElementById('spineFill');
+    if(!fill) return;
+    const pct = total === blocks.length ? 100 : ((last+1)/blocks.length*100);
+    fill.style.height = pct+'%';
+  }
+
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); revealObs.unobserve(e.target); }});
+  }, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      const fill = document.getElementById('spineFill');
+      if(fill) fill.style.height = '100%';
+    }, 400);
+  });
+
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const scrollSpy = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting) {
+        navLinks.forEach(a => a.style.color='');
+        const m = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if(m) m.style.color = 'var(--ink)';
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('section[id]').forEach(s => scrollSpy.observe(s));
+</script>
+</body>
+</html>
