@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSED — Engineering Path</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">CSED</div>
+      <span class="nav-logo-text">Learning Computer Science Together</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="program.html">The 10-Week Plan</a></li>
+      <li><a href="tracks.html">Skill Paths</a></li>
+      <li><a href="community.html">Our Community</a></li>
+    </ul>
+    <a href="#cta" class="nav-cta">Join us</a>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="program.html" onclick="toggleMenu()">The 10-Week Plan</a>
+    <a href="tracks.html" onclick="toggleMenu()">Skill Paths</a>
+    <a href="community.html" onclick="toggleMenu()">Our Community</a>
+    <a href="#cta" onclick="toggleMenu()">Join us</a>
+  </div>
+
+  <section>
+    <div class="reveal">
+      <div class="section-label">Engineering Path</div>
+      <h2 class="section-title">The Building Track.</h2>
+      <p class="section-desc">In this track, we learn how to make software. We build the things that users see and the magic that makes them work.</p>
+    </div>
+
+    <!-- TRACK LEAD -->
+    <div class="leader-card lc-blue reveal" style="max-width: 600px; margin: 3rem 0; display: flex; gap: 2rem; align-items: flex-start; text-align: left;">
+      <div style="flex-shrink: 0;">
+        <img src="public/images/Salisu Ali.jpg" alt="Salisu Ali" style="width: 150px; height: 150px; border-radius: 20px; object-fit: cover; border: 1px solid var(--rule);">
+      </div>
+      <div>
+        <span class="leader-track-badge ltb-blue">Track Leader</span>
+        <h3 class="leader-name" style="font-size: 24px;">Salisu Ali</h3>
+        <p class="leader-role">Full-Stack Engineer</p>
+        <p class="leader-bio" style="font-size: 15px; line-height: 1.6;">Salisu Ali loves building things that work on the web. He helps students learn how to code from the front to the back. He believes that everyone can learn to build great apps if they have friends to help them.</p>
+      </div>
+    </div>
+
+    <!-- NESTED TRACKS -->
+    <div class="reveal">
+      <h3 style="font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 2rem;">What you can learn:</h3>
+      <div class="rituals-grid">
+        <div class="ritual-card">
+          <div class="ritual-icon">🖥️</div>
+          <div>
+            <div class="ritual-name" style="font-size: 18px;">Frontend Development</div>
+            <p class="ritual-desc">Making the part of the website that people see and touch. You will learn how to make layouts and buttons look great.</p>
+          </div>
+        </div>
+        <div class="ritual-card">
+          <div class="ritual-icon">💾</div>
+          <div>
+            <div class="ritual-name" style="font-size: 18px;">Backend Development</div>
+            <p class="ritual-desc">Building the part of the app that stores information and handles logically complex tasks. This is the brain of the app.</p>
+          </div>
+        </div>
+        <div class="ritual-card">
+          <div class="ritual-icon">🏗️</div>
+          <div>
+            <div class="ritual-name" style="font-size: 18px;">Full-Stack Development</div>
+            <p class="ritual-desc">Learning how to build the whole thing by yourself. You will understand how everything works together from start to finish.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-section" id="cta">
+    <div class="cta-inner reveal">
+      <h2>Ready to start coding?</h2>
+      <a href="tracks.html" class="btn-primary-inv">See all paths →</a>
+    </div>
+  </div>
+
+  <footer>
+    <strong>CSED</strong> — Let's build something amazing together.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

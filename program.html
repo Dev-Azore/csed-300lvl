@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSED — The 10-Week Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">CSED</div>
+      <span class="nav-logo-text">Learning Computer Science Together</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="program.html" style="color: var(--ink);">The 10-Week Plan</a></li>
+      <li><a href="tracks.html">Skill Paths</a></li>
+      <li><a href="community.html">Our Community</a></li>
+    </ul>
+    <a href="#cta" class="nav-cta">Join us</a>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="program.html" onclick="toggleMenu()">The 10-Week Plan</a>
+    <a href="tracks.html" onclick="toggleMenu()">Skill Paths</a>
+    <a href="community.html" onclick="toggleMenu()">Our Community</a>
+    <a href="#cta" onclick="toggleMenu()">Join us</a>
+  </div>
+
+  <section id="phases">
+    <div class="reveal">
+      <div class="phases-header">
+        <div>
+          <div class="section-label">The Road Map</div>
+          <h2 class="section-title">Five steps to success.</h2>
+          <p class="section-desc">We grow together. First we build trust, then we build projects, and then we teach
+            others.</p>
+        </div>
+        <div class="phase-tabs">
+          <button class="phase-tab active" onclick="filterPhase('all')">All steps</button>
+          <button class="phase-tab" onclick="filterPhase(0)">Step 1</button>
+          <button class="phase-tab" onclick="filterPhase(1)">Step 2</button>
+          <button class="phase-tab" onclick="filterPhase(2)">Step 3</button>
+          <button class="phase-tab" onclick="filterPhase(3)">Step 4</button>
+          <button class="phase-tab" onclick="filterPhase(4)">Step 5</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="timeline-spine">
+        <div class="timeline-spine-fill" id="spineFill"></div>
+      </div>
+
+      <!-- PHASE 1 -->
+      <div class="phase-block active" data-phase="0">
+        <div class="phase-node">
+          <div class="phase-dot">1</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-meta">
+            <span class="phase-week-badge">Weeks 1–2</span>
+            <span class="phase-theme">Getting Started</span>
+          </div>
+          <h3 class="phase-name">The Foundation</h3>
+          <p class="phase-tagline">We get to know each other and set our goals.</p>
+          <div class="pillars-grid">
+            <div class="pillar">
+              <div class="pillar-header">
+                <div class="pillar-icon" style="background:var(--accent-bg)">🏛️</div>
+                <div class="pillar-title">Group Setup</div>
+              </div>
+              <ul class="pillar-list">
+                <li>Pick our group name and rules</li>
+                <li>Meet our mentors and leaders</li>
+                <li>Find a "buddy" to help you along</li>
+              </ul>
+            </div>
+            <div class="pillar">
+              <div class="pillar-header">
+                <div class="pillar-icon" style="background:var(--warm-bg)">🔍</div>
+                <div class="pillar-title">Skill Check</div>
+              </div>
+              <ul class="pillar-list">
+                <li>See what everyone is good at</li>
+                <li>Pick your main path of learning</li>
+                <li>Get matched with a mentor</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 2 -->
+      <div class="phase-block active" data-phase="1">
+        <div class="phase-node">
+          <div class="phase-dot">2</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-meta">
+            <span class="phase-week-badge">Weeks 3–4</span>
+            <span class="phase-theme">Finding Problems</span>
+          </div>
+          <h3 class="phase-name">Project Discovery</h3>
+          <p class="phase-tagline">We find out what real problems people have.</p>
+          <div class="pillars-grid">
+            <div class="pillar">
+              <div class="pillar-header">
+                <div class="pillar-icon" style="background:var(--accent-bg)">🧭</div>
+                <div class="pillar-title">Research</div>
+              </div>
+              <ul class="pillar-list">
+                <li>Talk to other students about their needs</li>
+                <li>Pick the top 3 problems to solve</li>
+                <li>Form small teams of 3–4 people</li>
+              </ul>
+            </div>
+            <div class="pillar">
+              <div class="pillar-header">
+                <div class="pillar-icon" style="background:var(--warm-bg)">📋</div>
+                <div class="pillar-title">Planning</div>
+              </div>
+              <ul class="pillar-list">
+                <li>Decide what tools to use</li>
+                <li>Make a plan for the next 4 weeks</li>
+                <li>Set up where our code will live</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 3 -->
+      <div class="phase-block active" data-phase="2">
+        <div class="phase-node">
+          <div class="phase-dot">3</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-meta">
+            <span class="phase-week-badge">Weeks 5–8</span>
+            <span class="phase-theme">Building Time</span>
+          </div>
+          <h3 class="phase-name">The Build</h3>
+          <p class="phase-tagline">This is where we build the real project.</p>
+          <div class="pillars-grid">
+            <div class="pillar">
+              <div class="pillar-header">
+                <div class="pillar-icon" style="background:var(--accent-bg)">⚡</div>
+                <div class="pillar-title">Work Cycles</div>
+              </div>
+              <ul class="pillar-list">
+                <li>Work in quick 2-week steps</li>
+                <li>Short daily meetings to stay on track</li>
+                <li>Share what we learned each week</li>
+              </ul>
+            </div>
+            <div class="pillar">
+              <div class="pillar-header">
+                <div class="pillar-icon" style="background:var(--sage-bg)">🎙️</div>
+                <div class="pillar-title">Soft Skills</div>
+              </div>
+              <ul class="pillar-list">
+                <li>Learn how to speak in public</li>
+                <li>Learn how to work under pressure</li>
+                <li>Learn how to solve team problems</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 4 -->
+      <div class="phase-block active" data-phase="3">
+        <div class="phase-node">
+          <div class="phase-dot">4</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-meta">
+            <span class="phase-week-badge">Week 9</span>
+            <span class="phase-theme">Helping Others</span>
+          </div>
+          <h3 class="phase-name">Scale & Teach</h3>
+          <p class="phase-tagline">We share our knowledge with the whole class.</p>
+          <div class="pillars-grid">
+            <div class="pillar">
+              <div class="pillar-header">
+                <div class="pillar-icon" style="background:var(--accent-bg)">📚</div>
+                <div class="pillar-title">Teaching</div>
+              </div>
+              <ul class="pillar-list">
+                <li>Teach one class session to everyone</li>
+                <li>Record our lessons for the future</li>
+                <li>Invite real users to try our projects</li>
+              </ul>
+            </div>
+            <div class="pillar">
+              <div class="pillar-header">
+                <div class="pillar-icon" style="background:var(--warm-bg)">🔄</div>
+                <div class="pillar-title">New Leaders</div>
+              </div>
+              <ul class="pillar-list">
+                <li>Vote for new student leaders</li>
+                <li>Help the next group get ready</li>
+                <li>Look back at what we achieved</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 5 -->
+      <div class="phase-block active" data-phase="4">
+        <div class="phase-node">
+          <div class="phase-dot">5</div>
+        </div>
+        <div class="phase-content">
+          <div class="phase-meta">
+            <span class="phase-week-badge">Week 10</span>
+            <span class="phase-theme">The Finale</span>
+          </div>
+          <h3 class="phase-name">Demo & Celebration</h3>
+          <p class="phase-tagline">We show what we built and celebrate our growth.</p>
+          <div class="pillars-grid">
+            <div class="pillar">
+              <div class="pillar-header">
+                <div class="pillar-icon" style="background:var(--accent-bg)">🏆</div>
+                <div class="pillar-title">Demo Day</div>
+              </div>
+              <ul class="pillar-list">
+                <li>Show our projects to teachers and experts</li>
+                <li>Finish our personal portfolios</li>
+                <li>Exchange notes on LinkedIn</li>
+              </ul>
+            </div>
+            <div class="pillar">
+              <div class="pillar-header">
+                <div class="pillar-icon" style="background:var(--rust-bg)">🎊</div>
+                <div class="pillar-title">Legacy</div>
+              </div>
+              <ul class="pillar-list">
+                <li>Hand over our lessons to the next group</li>
+                <li>Recognition awards for everyone</li>
+                <li>Celebrate 10 weeks of hard work!</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section" id="cta">
+    <div class="cta-inner reveal">
+      <h2>Finish what you start.</h2>
+      <p>10 weeks. One community. A legacy that lasts.</p>
+      <div class="cta-actions">
+        <a href="tracks.html" class="btn-primary-inv">See our skill paths →</a>
+        <a href="index.html" class="btn-secondary-inv">Back to home</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <strong>CSED</strong> — Growing together through building together.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

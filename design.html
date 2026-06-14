@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSED — Product & Design Path</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">CSED</div>
+      <span class="nav-logo-text">Learning Computer Science Together</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="program.html">The 10-Week Plan</a></li>
+      <li><a href="tracks.html">Skill Paths</a></li>
+      <li><a href="community.html">Our Community</a></li>
+    </ul>
+    <a href="#cta" class="nav-cta">Join us</a>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="program.html" onclick="toggleMenu()">The 10-Week Plan</a>
+    <a href="tracks.html" onclick="toggleMenu()">Skill Paths</a>
+    <a href="community.html" onclick="toggleMenu()">Our Community</a>
+    <a href="#cta" onclick="toggleMenu()">Join us</a>
+  </div>
+
+  <section>
+    <div class="reveal">
+      <div class="section-label">Product & Design Path</div>
+      <h2 class="section-title">The Beauty Track.</h2>
+      <p class="section-desc">In this track, we learn how to make tools that people love to use. We think about the user first and build a beautiful experience.</p>
+    </div>
+
+    <!-- TRACK LEAD -->
+    <div class="leader-card lc-sage reveal" style="max-width: 600px; margin: 3rem 0; display: flex; gap: 2rem; align-items: flex-start; text-align: left;">
+      <div style="flex-shrink: 0;">
+        <img src="public/images/Muttaka Muhammad.jpg" alt="Muttaka Muhammad" style="width: 150px; height: 150px; border-radius: 20px; object-fit: cover; border: 1px solid var(--rule);">
+      </div>
+      <div>
+        <span class="leader-track-badge ltb-sage">Track Leader</span>
+        <h3 class="leader-name" style="font-size: 24px;">Muttaka Muhammad</h3>
+        <p class="leader-role">UI/UX Designer</p>
+        <p class="leader-bio" style="font-size: 15px; line-height: 1.6;">Muttaka Muhammad is a designer who makes apps easy and fun to use. He helps students learn how to think about the people who use our tools. He believes that good design is simple and clear for everyone.</p>
+      </div>
+    </div>
+
+    <!-- NESTED TRACKS -->
+    <div class="reveal">
+      <h3 style="font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 2rem;">What you can learn:</h3>
+      <div class="rituals-grid">
+        <div class="ritual-card">
+          <div class="ritual-icon">🎨</div>
+          <div>
+            <div class="ritual-name" style="font-size: 18px;">UI Design</div>
+            <p class="ritual-desc">Making the website look brand new and professional. You will learn about colors, fonts, and how to make things look beautiful.</p>
+          </div>
+        </div>
+        <div class="ritual-card">
+          <div class="ritual-icon">👥</div>
+          <div>
+            <div class="ritual-name" style="font-size: 18px;">UX Research</div>
+            <p class="ritual-desc">Talking to real people to find out what they need. You will learn how to ask the right questions to build better tools.</p>
+          </div>
+        </div>
+        <div class="ritual-card">
+          <div class="ritual-icon">📈</div>
+          <div>
+            <div class="ritual-name" style="font-size: 18px;">Product Management</div>
+            <p class="ritual-desc">Planning the whole project and making sure we build it on time. You will learn how to lead a team and keep everyone focused.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-section" id="cta">
+    <div class="cta-inner reveal">
+      <h2>Ready to start designing?</h2>
+      <a href="tracks.html" class="btn-primary-inv">See all paths →</a>
+    </div>
+  </div>
+
+  <footer>
+    <strong>CSED</strong> — Let's build something beautiful together.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

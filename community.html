@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSED — Our Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">CSED</div>
+      <span class="nav-logo-text">Learning Computer Science Together</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="program.html">The 10-Week Plan</a></li>
+      <li><a href="tracks.html">Skill Paths</a></li>
+      <li><a href="community.html" style="color: var(--ink);">Our Community</a></li>
+    </ul>
+    <a href="#cta" class="nav-cta">Join us</a>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="program.html" onclick="toggleMenu()">The 10-Week Plan</a>
+    <a href="tracks.html" onclick="toggleMenu()">Skill Paths</a>
+    <a href="community.html" onclick="toggleMenu()">Our Community</a>
+    <a href="#cta" onclick="toggleMenu()">Join us</a>
+  </div>
+
+  <!-- RITUALS -->
+  <div class="rituals-bg">
+    <section id="rituals">
+      <div class="reveal">
+        <div class="section-label">What we do often</div>
+        <h2 class="section-title">Good habits make work easy.</h2>
+        <p class="section-desc">We have a few regular things we do together to stay on track and keep learning.</p>
+      </div>
+      <div class="rituals-grid reveal">
+        <div class="ritual-card">
+          <div class="ritual-icon">🗣️</div>
+          <div>
+            <div class="ritual-freq">Weekly</div>
+            <div class="ritual-name">TechTalk (30 min)</div>
+            <p class="ritual-desc">One student teaches something new to everyone. We take turns every week. No pressure, just sharing.</p>
+          </div>
+        </div>
+        <div class="ritual-card">
+          <div class="ritual-icon">🔎</div>
+          <div>
+            <div class="ritual-freq">Every 2 Weeks</div>
+            <div class="ritual-name">Help Each Other</div>
+            <p class="ritual-desc">We look at each other's code and designs. We give kind and helpful advice to make the work better.</p>
+          </div>
+        </div>
+        <div class="ritual-card">
+          <div class="ritual-icon">🚀</div>
+          <div>
+            <div class="ritual-freq">Every 2 Weeks</div>
+            <div class="ritual-name">Show and Tell</div>
+            <p class="ritual-desc">Each team shows their progress to the group. It helps us feel proud and stay on schedule.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- LEADERSHIP -->
+  <section id="leadership">
+    <div class="reveal">
+      <div class="section-label">Who leads us</div>
+      <h2 class="section-title">The leadership team.</h2>
+      <p class="section-desc">We have roles that change every semester so everyone gets a chance to lead.</p>
+    </div>
+    <div class="roles-grid reveal">
+      <div class="role-card">
+        <div class="role-avatar">👑</div>
+        <div class="role-name">Group Leader</div>
+        <p class="role-desc">Helps the whole group stay focused and makes final decisions. This role rotates to a new student later.</p>
+      </div>
+      <div class="role-card">
+        <div class="role-avatar">🌿</div>
+        <div class="role-name">Track Leads</div>
+        <p class="role-desc">The experts for each skill path (Engineering, Data, Design, DevOps). They help the seniors mentor the juniors.</p>
+      </div>
+      <div class="role-card">
+        <div class="role-avatar">📅</div>
+        <div class="role-name">Events Planner</div>
+        <p class="role-desc">Plans our big show-and-tell days and invites guest speakers from the industry.</p>
+      </div>
+      <div class="role-card">
+        <div class="role-avatar">💬</div>
+        <div class="role-name">Community Friend</div>
+        <p class="role-desc">Makes sure new members feel welcome and checks that everyone is happy and healthy.</p>
+      </div>
+      <div class="role-card">
+        <div class="role-avatar">📚</div>
+        <div class="role-name">Knowledge Keeper</div>
+        <p class="role-desc">Records our lessons and keeps our online library organized for everyone to use.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFT SKILLS -->
+  <section id="skills">
+    <div class="reveal">
+      <div class="section-label">Other useful skills</div>
+      <h2 class="section-title">More than just tech.</h2>
+      <p class="section-desc">We also learn how to be good teammates and leaders.</p>
+    </div>
+    <div class="soft-grid reveal">
+      <div class="soft-card">
+        <div class="soft-icon">🎤</div>
+        <div class="soft-name">Speaking Up</div>
+        <p class="soft-desc">Practice talking in front of others so you feel brave during presentations.</p>
+      </div>
+      <div class="soft-card">
+        <div class="soft-icon">🤝</div>
+        <div class="soft-name">Solving Group Problems</div>
+        <p class="soft-desc">Learn how to deal with disagreements calmly and stay friends with your team.</p>
+      </div>
+      <div class="soft-card">
+        <div class="soft-icon">✍️</div>
+        <div class="soft-name">Writing Clearly</div>
+        <p class="soft-desc">Learn how to write notes and posts that people can understand easily.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section" id="cta">
+    <div class="cta-inner reveal">
+      <h2>A better community starts with you.</h2>
+      <a href="index.html" class="btn-primary-inv">Back to the start →</a>
+    </div>
+  </div>
+
+  <footer>
+    <strong>CSED</strong> — Better together.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

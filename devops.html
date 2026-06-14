@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSED — DevOps & Security Path</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">CSED</div>
+      <span class="nav-logo-text">Learning Computer Science Together</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="program.html">The 10-Week Plan</a></li>
+      <li><a href="tracks.html">Skill Paths</a></li>
+      <li><a href="community.html">Our Community</a></li>
+    </ul>
+    <a href="#cta" class="nav-cta">Join us</a>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="program.html" onclick="toggleMenu()">The 10-Week Plan</a>
+    <a href="tracks.html" onclick="toggleMenu()">Skill Paths</a>
+    <a href="community.html" onclick="toggleMenu()">Our Community</a>
+    <a href="#cta" onclick="toggleMenu()">Join us</a>
+  </div>
+
+  <section>
+    <div class="reveal">
+      <div class="section-label">DevOps & Security Path</div>
+      <h2 class="section-title">The Safety Track.</h2>
+      <p class="section-desc">In this track, we learn how to keep our tools safe and always working. We use smart automation so everyone can work faster and better.</p>
+    </div>
+
+    <!-- TRACK LEAD -->
+    <div class="leader-card lc-rust reveal" style="max-width: 600px; margin: 3rem 0; display: flex; gap: 2rem; align-items: flex-start; text-align: left;">
+      <div style="flex-shrink: 0;">
+        <img src="public/images/Mustapha Yusuf.jpg" alt="Mustapha Yusuf" style="width: 150px; height: 150px; border-radius: 20px; object-fit: cover; border: 1px solid var(--rule);">
+      </div>
+      <div>
+        <span class="leader-track-badge ltb-rust">Track Leader</span>
+        <h3 class="leader-name" style="font-size: 24px;">Mustapha Yusuf</h3>
+        <p class="leader-role">DevOps Engineer</p>
+        <p class="leader-bio" style="font-size: 15px; line-height: 1.6;">Mustapha Yusuf is a expert in keeping websites safe and running. He helps students learn how to automate their work and use the cloud. He loves making things fast, safe, and reliable for everyone.</p>
+      </div>
+    </div>
+
+    <!-- NESTED TRACKS -->
+    <div class="reveal">
+      <h3 style="font-family: 'DM Serif Display', serif; font-size: 28px; margin-bottom: 2rem;">What you can learn:</h3>
+      <div class="rituals-grid">
+        <div class="ritual-card">
+          <div class="ritual-icon">☁️</div>
+          <div>
+            <div class="ritual-name" style="font-size: 18px;">Cloud Infrastructure</div>
+            <p class="ritual-desc">Learning how to put our apps on the web using the cloud. You will learn how to make sure they can handle many users at once.</p>
+          </div>
+        </div>
+        <div class="ritual-card">
+          <div class="ritual-icon">🔒</div>
+          <div>
+            <div class="ritual-name" style="font-size: 18px;">Security</div>
+            <p class="ritual-desc">Keeping our code and user data safe from hackers. You will learn about locks, keys, and how to build safe tools.</p>
+          </div>
+        </div>
+        <div class="ritual-card">
+          <div class="ritual-icon">⚙️</div>
+          <div>
+            <div class="ritual-name" style="font-size: 18px;">Automation</div>
+            <p class="ritual-desc">Writing scripts that do the boring work for us. You will learn how to make sure the app builds itself every time we save our code.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-section" id="cta">
+    <div class="cta-inner reveal">
+      <h2>Ready to keep us safe?</h2>
+      <a href="tracks.html" class="btn-primary-inv">See all paths →</a>
+    </div>
+  </div>
+
+  <footer>
+    <strong>CSED</strong> — Let's build something safe together.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

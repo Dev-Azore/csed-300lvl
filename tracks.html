@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSED — Skill Paths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">CSED</div>
+      <span class="nav-logo-text">Learning Computer Science Together</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="program.html">The 10-Week Plan</a></li>
+      <li><a href="tracks.html" style="color: var(--ink);">Skill Paths</a></li>
+      <li><a href="community.html">Our Community</a></li>
+    </ul>
+    <a href="#cta" class="nav-cta">Join us</a>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="program.html" onclick="toggleMenu()">The 10-Week Plan</a>
+    <a href="tracks.html" onclick="toggleMenu()">Skill Paths</a>
+    <a href="community.html" onclick="toggleMenu()">Our Community</a>
+    <a href="#cta" onclick="toggleMenu()">Join us</a>
+  </div>
+
+  <section id="tracks">
+    <div class="reveal">
+      <div class="section-label">Skill Paths</div>
+      <h2 class="section-title">Pick your lane.</h2>
+      <p class="section-desc">Every member picks one path to lead and helps out in another. We learn better when we work together across different skills.</p>
+    </div>
+
+    <div class="tracks-grid reveal">
+      <!-- Engineering -->
+      <div class="track-card tc-blue">
+        <div class="track-icon-wrap">⚙️</div>
+        <div class="track-name">Engineering</div>
+        <p class="track-desc">Building the core of the project using code. We do code reviews and help each other write better software.</p>
+        <div class="track-tags">
+          <span class="track-tag">Web Apps</span>
+          <span class="track-tag">Mobile</span>
+          <span class="track-tag">APIs</span>
+        </div>
+        <a href="engineering.html" class="btn-primary" style="margin-top: 1.5rem; width: 100%; justify-content: center;">See More Details →</a>
+      </div>
+
+      <!-- Data & AI -->
+      <div class="track-card tc-warm">
+        <div class="track-icon-wrap">📊</div>
+        <div class="track-name">Data & AI</div>
+        <p class="track-desc">Working with data to find answers and build smart tools that help people understand information.</p>
+        <div class="track-tags">
+          <span class="track-tag">Clean Data</span>
+          <span class="track-tag">Smart Tools</span>
+          <span class="track-tag">Charts</span>
+        </div>
+        <a href="data.html" class="btn-primary" style="margin-top: 1.5rem; width: 100%; justify-content: center;">See More Details →</a>
+      </div>
+
+      <!-- Product & Design -->
+      <div class="track-card tc-sage">
+        <div class="track-icon-wrap">🎨</div>
+        <div class="track-name">Product & Design</div>
+        <p class="track-desc">Making sure the tools we build are easy to use and look beautiful. We talk to users to see what they want.</p>
+        <div class="track-tags">
+          <span class="track-tag">User Help</span>
+          <span class="track-tag">New Ideas</span>
+          <span class="track-tag">Design Patterns</span>
+        </div>
+        <a href="design.html" class="btn-primary" style="margin-top: 1.5rem; width: 100%; justify-content: center;">See More Details →</a>
+      </div>
+
+      <!-- DevOps & Security -->
+      <div class="track-card tc-rust">
+        <div class="track-icon-wrap">🛡️</div>
+        <div class="track-name">DevOps & Security</div>
+        <p class="track-desc">Keeping our tools running smoothly and safely. We automate the work so everyone can ship faster.</p>
+        <div class="track-tags">
+          <span class="track-tag">Auto-build</span>
+          <span class="track-tag">Safety</span>
+          <span class="track-tag">Cloud</span>
+        </div>
+        <a href="devops.html" class="btn-primary" style="margin-top: 1.5rem; width: 100%; justify-content: center;">See More Details →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section" id="cta">
+    <div class="cta-inner reveal">
+      <h2>Every path leads to growth.</h2>
+      <p>Which one will you choose?</p>
+      <div class="cta-actions">
+        <a href="community.html" class="btn-primary-inv">Meet our community →</a>
+        <a href="index.html" class="btn-secondary-inv">Back to home</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <strong>CSED</strong> — Pick a path and start building.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
